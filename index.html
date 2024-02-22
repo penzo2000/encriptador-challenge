@@ -14,9 +14,13 @@
     </header>
     <main>
         <section class="encriptador">
-            <input type="text" required placeholder="Ingrese el texto a encriptar aquí.">
-            <p>&#9888 Solo letras minúsculas y sin acento</p>
+            <textarea cols="30" raws="30" placeholder="Ingrese texto aquí"></textarea>
+            <section class="Advertencia">
+                <img src="imagenes/signo-de-advertencia.png" alt="Simbolo de alerta">
+                <p>Solo letras minúsculas y sin acento</p>
+            </section>
             <button onclick="encriptar()">Encriptar</button>
+            <utton onclick="desencriptar()">Desencriptar</button>
         </section>
 
         <section class="lector">
