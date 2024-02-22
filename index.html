@@ -12,20 +12,24 @@
             <img src="imagenes/logo.png" alt="Logo de AluraLatam">
         </div>
     </header>
+
     <main>
         <section class="encriptador">
             <textarea cols="30" raws="30" placeholder="Ingrese texto aquí"></textarea>
-            <section class="Advertencia">
+            <section class="advertencia">
                 <img src="imagenes/signo-de-advertencia.png" alt="Simbolo de alerta">
                 <p>Solo letras minúsculas y sin acento</p>
             </section>
             <button onclick="encriptar()">Encriptar</button>
-            <utton onclick="desencriptar()">Desencriptar</button>
+            <button onclick="desencriptar()">Desencriptar</button>
         </section>
-
-        <section class="lector">
+        <section class="caja-de-texto" id="caja-de-texto">
+            <img src="imagenes/munieco.png" alt="Imagen de un muñeco">
+            <p>Ningún mensaje fue encontrado</p>
+            <p>Ingresa el texto que deseas encriptar o desencriptar</p>
         </section>
     </main>
+    <footer></footer>
     <script src="app.js"></script>
 </body>
 </html>
