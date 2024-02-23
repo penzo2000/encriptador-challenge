@@ -2,10 +2,6 @@ body{
     background-color: #F3F5FC;
 }
 
-header{
-    display: inline-block;
-}
-
 .logo{
    width:120px;
    position:absolute;
@@ -15,10 +11,16 @@ header{
 
 .encriptador{
     display: inline-block;
+    position: absolute;
+    top: 168px;
+    left: 240px;
 }
 
 .caja-de-texto{
     display: inline-block;
+    position: absolute;
+    top: 40px;
+    left: 1000px;
 }
 
 
@@ -26,4 +28,9 @@ header{
 
 #boton-copiar {
     display: none;
+}
+
+footer{
+    position: absolute;
+    top: 588px;
 }
