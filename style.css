@@ -11,30 +11,99 @@ body{
 .encriptador{
     display: inline-block;
     position: relative;
-    top: -140px;
-    left: 185px;
-    height: 414px;
-    width: 55%;
-    background: blue;
+    top: -77px;
+    left: 216px;
+    height: 489px;
+    width: 486px;
 }
 
 .text-area{
     display: inline-block;
     position: absolute;
+    width: 482px;
+    height: 327px;
+    border: none;
+    background-color: #F3F5FC;
 }
 
 .botones{
     display: inline-block;
     position: relative;
-    top: 344px;
-    background-color: rgb(248, 0, 124);
+    top: 400px;
+    width:600px;
+    height: 73px;
 }
 
+.botones div{
+    display: block;
+}
+
+.botones div img{
+    display: inline;
+    width: 12px;
+}
+
+.botones div p{
+    display: inline;
+    font-size: 12px;
+    margin:0 0 10px 5px;
+}
+
+.boton-estilo{
+    border-radius: 24px;
+    padding:24px;
+    margin: 8px 0 0 44px;
+    width: 264px;
+    border: 1px;
+    background-color: #c6d2e0;
+}
+
+.boton-estilo:active{
+    transform: scale(0.94); 
+    transition: transform 0.1s ease-in-out;
+    box-shadow: 0 10px 16px rgba(0, 0, 0, 0.1);
+}
+
+#encriptador{
+    padding:24px;
+    margin:0px;
+    background-color: #0A3871;
+}
 .caja-de-texto{
     display: inline-block;
     position:relative;
+    top: 40px;
+    left:460px;
+    height: 575px;
+    width: 339px;
+    background-color:#FFFFFF;
+    border-radius: 32px;
 }
 
+.caja-de-texto img{
+    width: 240px;
+    position: relative;
+    top: 125px;
+    left: 40px;
+}
+
+#parrafo-sin-texto{
+    position:relative;
+    top:135px;
+    text-align: center;
+}
+
+#ingrese-texto{
+    position:relative;
+    top:140px;
+    text-align: center;
+}
 #boton-copiar {
     display: none;
+}
+
+footer{
+    background-color: #0A3871;
+    padding: 90px;
+    text-align: center;
 }

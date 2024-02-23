@@ -19,22 +19,24 @@
         <section class="encriptador">
             <textarea cols="30" raws="30" placeholder="Ingrese texto aquí" class="text-area"></textarea>
             <section class="botones">
-                <img src="imagenes/signo-de-advertencia.png" alt="Simbolo de alerta"><p>Solo letras minúsculas y sin acento</p>
-                <button onclick="encriptar()">Encriptar</button>
-                <button onclick="desencriptar()">Desencriptar</button>
+                <div>
+                    <img src="imagenes/signo-de-advertencia.png" alt="Simbolo de alerta"><p>Solo letras minúsculas y sin acento</p>
+                </div>
+                <button onclick="encriptar()" id="encriptador" class="boton-estilo">Encriptar</button>
+                <button onclick="desencriptar()" class="boton-estilo">Desencriptar</button>
             </section>
         </section>
 
         <section class="caja-de-texto" id="caja-de-texto">
             <img src="imagenes/munieco.png" alt="Imagen de un muñeco">
-            <p>Ningún mensaje fue encontrado</p>
-            <p>Ingresa el texto que deseas encriptar o desencriptar</p>
+            <p id="parrafo-sin-texto">Ningún mensaje fue encontrado</p>
+            <p id="ingrese-texto">Ingresa el texto que deseas encriptar o desencriptar</p>
             <button onclick="copiar()" id="boton-copiar">Copiar</button>
         </section>
 
     </main>
     <footer>
-        <p>Desarrollado por Victoria Penzo - 2024</p>
+        <p>Desarrollado por Victoria Penzo - &copy Copyright 2024</p>
     </footer>
     <script src="app.js"></script>
 </body>
