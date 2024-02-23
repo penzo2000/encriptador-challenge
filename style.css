@@ -11,7 +11,7 @@ body{
 .encriptador{
     display: inline-block;
     position: relative;
-    top: -77px;
+    top: -144px;
     left: 216px;
     height: 489px;
     width: 486px;
@@ -27,6 +27,16 @@ body{
     border: none;
     padding: 15px;
     background: #FFFFFF;
+    font-family: "Inter", sans-serif;
+    font-size: 27px;
+    font-weight: 350;
+    color:#0A3871;
+}
+
+::placeholder{
+    font-size: 27px;
+    font-weight: 400; 
+    color:#0A3871;
 }
 
 .botones{
@@ -48,19 +58,27 @@ body{
 
 .botones div p{
     display: inline;
+    font-family: "Inter", sans-serif;
+    line-height: 18px;
+    font-weight: 600;
+    color:#6c7279;
     font-size: 12px;
     margin:0 0 10px 5px;
 }
 
 .boton-estilo{
     border-radius: 24px;
-    padding:24px;
+    padding:15px;
     margin: 8px 0 0 44px;
     width: 299px;
     border:1px solid #0A3871;
-    background-color: #c6d2e0;
+    background-color: #d7e3f0;
     text-align: center;
     cursor:pointer;
+    font-family: "Inter", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color:#0A3871;
 }
 
 .boton-estilo:active{
@@ -70,18 +88,18 @@ body{
 }
 
 #encriptador{
-    padding:24px;
     margin:0px;
     background-color: #0A3871;
+    color:#FFFFFF
 }
 .caja-de-texto{
     display: inline-block;
-    position:relative;
-    top: 40px;
-    left:460px;
-    height: 575px;
+    position: relative;
+    top: 17px;
+    left: 460px;
+    height: 605px;
     width: 339px;
-    background-color:#FFFFFF;
+    background-color: #FFFFFF;
     border-radius: 32px;
 }
 
@@ -96,12 +114,21 @@ body{
     position:relative;
     top:135px;
     text-align: center;
+    font-family: "Inter", sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color:#343A40;
 }
 
 #ingrese-texto{
     position:relative;
     top:140px;
     text-align: center;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color:#495057;
+    margin: 20px 0 0 0;
 }
 #boton-copiar {
     display: none;
@@ -111,4 +138,7 @@ footer{
     background-color: #0A3871;
     padding: 70px;
     text-align: center;
+    font-family: "Inter", sans-serif;
+    color:#FFFFFF;
+    font-size: 12px;
 }
