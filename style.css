@@ -1,3 +1,29 @@
+body{
+    background-color: #F3F5FC;
+}
+
+header{
+    display: inline-block;
+}
+
+.logo{
+   width:120px;
+   position:absolute;
+   top: 40px;
+   left: 40px;
+}
+
+.encriptador{
+    display: inline-block;
+}
+
+.caja-de-texto{
+    display: inline-block;
+}
+
+
+
+
 #boton-copiar {
     display: none;
 }
