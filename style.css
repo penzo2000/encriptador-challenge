@@ -11,16 +11,23 @@ body{
 .encriptador{
     display: inline-block;
     position: relative;
+    top: -140px;
+    left: 185px;
+    height: 414px;
+    width: 55%;
     background: blue;
 }
 
 .text-area{
     display: inline-block;
-    position: relative;
+    position: absolute;
 }
 
-.botones-encriptado{
-    position: absolute;
+.botones{
+    display: inline-block;
+    position: relative;
+    top: 344px;
+    background-color: rgb(248, 0, 124);
 }
 
 .caja-de-texto{
