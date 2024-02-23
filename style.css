@@ -11,7 +11,7 @@ body{
 .encriptador{
     display: inline-block;
     position: relative;
-    top: -144px;
+    top: -200px;
     left: 216px;
     height: 489px;
     width: 486px;
@@ -132,6 +132,9 @@ body{
 }
 #boton-copiar {
     display: none;
+    position:relative;
+    left: -23px;
+    top:183px;
 }
 
 footer{
