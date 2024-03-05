@@ -4,7 +4,10 @@ copiar.style.display = "block";*/
 
 //Captura de elementos de texto
 const textoUsuario=document.getElementById("texto-usuario");
-console.log(textoUsuario);
+const textoMostrado=document.querySelector("#caja-de-texto");
+let textoIngresado=textoUsuario.value;
+console.log(textoUsuario,textoMostrado);
+console.log(textoIngresado);
 
 //Matriz de encriptación 
 
@@ -15,3 +18,8 @@ const matrizKey=[
     ["O","ober"],
     ["u","ufat"],
 ]
+
+function encriptar(){
+    let textoIngresado=textoUsuario.value;
+    console.log(textoIngresado);
+}
