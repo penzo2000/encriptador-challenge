@@ -120,7 +120,7 @@ body{
     color:#343A40;
 }
 
-#ingrese-texto{
+#ingrese-texto,#texto-modificado{
     position:relative;
     top:140px;
     text-align: center;
