@@ -15,11 +15,22 @@ const matrizKey=[
     ["e","enter"],
     ["i","imes"],
     ["a","ai"],
-    ["O","ober"],
+    ["o","ober"],
     ["u","ufat"],
 ]
 
-function encriptar(){
+function botonEncriptar(){
     let textoIngresado=textoUsuario.value;
     console.log(textoIngresado);
+    encriptado(textoIngresado);
+    
+}
+
+function encriptado(texto) {
+    for (let i=0; i<matrizKey.length; i++){
+        if (texto.includes(matrizKey[i][0])){
+            texto=texto.replace(new RegExp(matrizKey[i][0], "g"),matrizKey[i][1]);
+        }
+    }  
+    console.log(texto);
 }
