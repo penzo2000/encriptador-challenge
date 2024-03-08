@@ -34,3 +34,19 @@ function encriptado(texto) {
     }  
     console.log(texto);
 }
+
+function botonDesencriptar(){
+    let textoIngresado=textoUsuario.value;
+    console.log(textoIngresado);
+    desencriptado(textoIngresado);
+    
+}
+
+function desencriptado(texto) {
+    for (let i=0; i<matrizKey.length; i++){
+        if (texto.includes(matrizKey[i][1])){
+            texto=texto.replace(new RegExp(matrizKey[i][1], "g"),matrizKey[i][0]);
+        }
+    }  
+    console.log(texto);
+}
