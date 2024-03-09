@@ -3,7 +3,7 @@ let copiar=document.getElementById('boton-copiar');
 copiar.style.display = "block";*/
 
 //Captura de elementos de texto
-const textoUsuario=document.getElementById("texto-usuario");
+const textoUsuario=document.getElementById("texto-usuario");//textarea DOM
 const textoMostrado=document.querySelector("#caja-de-texto");
 console.log(textoUsuario,textoMostrado);
 //Matriz de encriptación 
@@ -21,17 +21,23 @@ function getUserText() {
     return textoIngresado;
 }
 
-function transformarAMinusculas(){
+function activarConversorMinusculas() {
+    textoUsuario.oninput=conversorMinusculas;
+}
+
+function conversorMinusculas(){
     let textoIngresado=textoUsuario.value;
-    textoIngresado=textoUsuario.value.toLowerCase();
+    textoUsuario.value=textoIngresado.toLowerCase();
 }
 
 function conversorATextoPedido(){
-    let resultado = confirm("Solo debes escribir letras minúsculas, y no agregar acentos. Presiona aceptar si quieres aplicar un conversor para que el texto que ingreses cumpla las condiciones");
+    let resultado = confirm("Pulse en aceptar para cambiar todo a minúsculas automáticamente");
     if (resultado) {
-        transformarAMinusculas();
+        conversorMinusculas();
+        activarConversorMinusculas();
     } 
 }
+
 
 
 function verificarMayusculasAcentos(event){
