@@ -19,12 +19,20 @@ const matrizKey=[
     ["u","ufat"],
 ]
 
-function botonEncriptar(){
+function getUserText() {
     let textoIngresado=textoUsuario.value;
-    console.log(textoIngresado);
-    encriptado(textoIngresado);
+    return textoIngresado;
+}
+
+
+//function alertaMayusYSimbol()
+
+function botonEncriptar(te){
+    console.log(getUserText());
+    encriptado(getUserText());
     
 }
+
 
 function encriptado(texto) {
     for (let i=0; i<matrizKey.length; i++){
@@ -36,9 +44,8 @@ function encriptado(texto) {
 }
 
 function botonDesencriptar(){
-    let textoIngresado=textoUsuario.value;
-    console.log(textoIngresado);
-    desencriptado(textoIngresado);
+    console.log(getUserText());
+    desencriptado(getUserText());
     
 }
 
