@@ -18,14 +18,27 @@ const matrizKey=[
     ["o","ober"],
     ["u","ufat"],
 ]
-
+ 
 function getUserText() {
     let textoIngresado=textoUsuario.value;
     return textoIngresado;
 }
 
+function conversorATextoPedido(){
+    let resultado = confirm("Solo debes escribir letras minúsculas, y no agregar acentos. Presiona aceptar si quieres aplicar un conversor para que el texto que ingreses cumpla las condiciones");
+    if (resultado) {
+        let minuscula=getUserText().toLowerCase();
+        console.log(minuscula);
+    } 
+}
 
-//function alertaMayusYSimbol()
+
+function verificarMayusculasAcentos(event){
+    let ultimaLetra = getUserText().charAt(getUserText().length - 1);
+    if (ultimaLetra==ultimaLetra.toUpperCase() && /[A-Z]/.test(ultimaLetra) || /[áéíóú]/.test(ultimaLetra) ){
+        conversorATextoPedido();
+    }
+}
 
 function botonEncriptar(te){
     console.log(getUserText());
