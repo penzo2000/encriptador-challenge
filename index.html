@@ -21,7 +21,7 @@
     <main>
         
         <section class="encriptador">
-            <textarea id="texto-usuario" cols="30" raws="30" onkeyup="verificarMayusculasAcentos(event)" required placeholder="Ingrese el texto aquí" class="text-area"></textarea>
+            <textarea id="texto-usuario" cols="30" raws="30" onkeyup="verificarMayusculasAcentos(event)" oninput="transformarAMinusculas()" required placeholder="Ingrese el texto aquí" class="text-area"></textarea>
             <section class="botones">
                 <div>
                     <img src="imagenes/signo-de-advertencia.png" alt="Simbolo de alerta"><p>Solo letras minúsculas y sin acento</p>
