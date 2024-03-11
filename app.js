@@ -1,7 +1,3 @@
-/*Aparece el botón copiar
-let copiar=document.getElementById('boton-copiar');
-copiar.style.display = "block";*/
-
 //Captura de elementos de texto
 const textoUsuario=document.getElementById("texto-usuario");//textarea DOM
 const textoMostrado=document.querySelector("#caja-de-texto");
@@ -89,9 +85,14 @@ function verificarMayusculasAcentos(event){
 function botonEncriptar(te){
     console.log(getUserText());
     encriptado(getUserText());
+    apareceBoton();
     
 }
 
+function apareceBoton() {
+    let copiar=document.getElementById('boton-copiar');
+    copiar.style.display = "block";
+}
 
 function encriptado(texto) {
     for (let i=0; i<matrizKey.length; i++){
