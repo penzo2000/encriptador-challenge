@@ -53,6 +53,9 @@ function peticionUsuarioAMinusculas(){
             textoUsuario.addEventListener('input', funcionesToActivar);
         }
     } 
+    else{
+        alert("No se pueden encriptar mayúsculas, acentos ni caracteres especiales");
+    }
 }
 
 function peticionUsuarioSinAcento(){
@@ -67,6 +70,9 @@ function peticionUsuarioSinAcento(){
             textoUsuario.addEventListener('input', funcionesToActivar);
         }
     } 
+    else{
+        alert("No se pueden encriptar mayúsculas, acentos ni caracteres especiales");
+    }
 }
 
 
@@ -105,7 +111,7 @@ function botonDesencriptar(){
 function desencriptado(texto) {
     for (let i=0; i<matrizKey.length; i++){
         if (texto.includes(matrizKey[i][1])){
-            texto=texto.replace(new RegExp(matrizKey[i][1], "g"),matrizKey[i][0]);
+            texto=texto.replaceAll(matrizKey[i][1],matrizKey[i][0]);
         }
     }  
     console.log(texto);
