@@ -5,9 +5,9 @@ copiar.style.display = "block";*/
 //Captura de elementos de texto
 const textoUsuario=document.getElementById("texto-usuario");//textarea DOM
 const textoMostrado=document.querySelector("#caja-de-texto");
+centinela=0;
 console.log(textoUsuario,textoMostrado);
 //Matriz de encriptación 
-
 const matrizKey=[
     ["e","enter"],
     ["i","imes"],
@@ -21,8 +21,9 @@ function getUserText() {
     return textoIngresado;
 }
 
-function activarConversorMinusculas() {
-    textoUsuario.oninput=conversorMinusculas;
+function funcionesToActivar() {
+    conversorMinusculas();
+    conversorAcento();
 }
 
 function conversorMinusculas(){
@@ -30,20 +31,52 @@ function conversorMinusculas(){
     textoUsuario.value=textoIngresado.toLowerCase();
 }
 
-function conversorATextoPedido(){
+function conversorAcento(){
+    let textoIngresado=textoUsuario.value;
+    acento=["á","é","í","ó","ú"];
+    sinAcento=["a","e","i","o","u"];
+    for(let i=0; i<acento.length; i++){
+        textoIngresado=textoIngresado.replaceAll(acento[i],sinAcento[i]);
+    }
+    textoUsuario.value=textoIngresado;
+}
+
+function peticionUsuarioAMinusculas(){
     let resultado = confirm("Pulse en aceptar para cambiar todo a minúsculas automáticamente");
     if (resultado) {
         conversorMinusculas();
-        activarConversorMinusculas();
+        if(centinela==0){
+            textoUsuario.oninput=conversorMinusculas;
+            centinela=1;
+        }
+        else{
+            textoUsuario.addEventListener('input', funcionesToActivar);
+        }
+    } 
+}
+
+function peticionUsuarioSinAcento(){
+    let resultado = confirm("Pulse en aceptar para bloquear acentos automáticamente");
+    if (resultado) {
+        conversorAcento();
+        if(centinela==0){
+            textoUsuario.oninput=conversorAcento;
+            centinela=1;
+        }
+        else{
+            textoUsuario.addEventListener('input', funcionesToActivar);
+        }
     } 
 }
 
 
-
 function verificarMayusculasAcentos(event){
     let ultimaLetra = getUserText().charAt(getUserText().length - 1);
-    if (ultimaLetra==ultimaLetra.toUpperCase() && /[A-Z]/.test(ultimaLetra) || /[áéíóú]/.test(ultimaLetra) ){
-        conversorATextoPedido();
+    if (ultimaLetra==ultimaLetra.toUpperCase() && /[A-Z]/.test(ultimaLetra)){
+        peticionUsuarioAMinusculas();
+    }
+    if(/[áéíóú]/.test(ultimaLetra)){
+        peticionUsuarioSinAcento();
     }
 }
 
