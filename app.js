@@ -110,10 +110,11 @@ function botonDesencriptar(){
 }
 
 function desencriptado(texto) {
+    let auxiliar=texto;
     for (let i=0; i<matrizKey.length; i++){
         if (texto.includes(matrizKey[i][1])){
-            texto=texto.replaceAll(matrizKey[i][1],matrizKey[i][0]);
+            auxiliar=auxiliar.replaceAll(matrizKey[i][1],matrizKey[i][0]);
         }
     }  
-    console.log(texto);
+    console.log(auxiliar);
 }
