@@ -1,8 +1,9 @@
-//Declaración de variables globales y uso del DOM
+//--------Declaración de variables globales y uso del DOM-------
 const textoUsuario=document.getElementById("texto-usuario");//textarea DOM
 const textoMostrado=document.querySelector("#caja-de-texto");
+const copiar=document.getElementById('boton-copiar');
 
-//Matriz de encriptación, Encriptado y Desencriptado 
+//--------Matriz de encriptación, Encriptado y Desencriptado------ 
 const matrizKey=[
     ["e","enter"],
     ["i","imes"],
@@ -24,17 +25,12 @@ function encriptado(texto) {
     }  
     console.log(texto);
 }
-
-function botonEncriptar(te){
+function botonEncriptar(){
     console.log(getUserText());
     encriptado(getUserText());
-    apareceBoton();
-    
-}
-
-function apareceBoton() {
-    let copiar=document.getElementById('boton-copiar');
-    copiar.style.display = "block";
+    apareceBotonCopiar();
+    limpiarTextArea();
+    restablecerBotonCopiar();
 }
 
 function desencriptado(texto) {
@@ -50,10 +46,11 @@ function desencriptado(texto) {
 function botonDesencriptar(){
     console.log(getUserText());
     desencriptado(getUserText());
-    
+    limpiarTextArea();
+    restablecerBotonCopiar()
 }
 
-//Control de condiciones para el texto ingresado en el textarea
+//------------Control de condiciones para el texto ingresado en el textarea--------
 //Minúsculas
 function conversorMinusculas(){
     let textoIngresado=textoUsuario.value;
@@ -74,11 +71,35 @@ function verificarMayusculas(){
     }
 }
 //Bloqueo caracteres especiales
-//textoUsuario.addEventListener("keypress",bloqueoCaracteresEspeciales);
 function bloqueoCaracteresEspeciales(event){
    const charCode=event.charCode;
    if (charCode!=9 && charCode!=32 && charCode!=209 && charCode!=241 && (charCode<65 || charCode>90) && (charCode<97 || charCode>122)){
      event.preventDefault();
    }
+}
+
+//---------------Otras funcionalidades------------
+
+function limpiarTextArea() {
+    textoUsuario.value="";
+}
+
+//Copiar texto
+function apareceBotonCopiar() {
+    copiar.style.display = "block";
+}
+
+function restablecerBotonCopiar() {
+    copiar.textContent="Copiar";
+}
+ async function copiarTexto(){
+    let textoEncriptado="En arreglo";
+    try{
+        await navigator.clipboard.writeText(textoEncriptado);
+        copiar.textContent="Copiado!";
+    }
+    catch(err){
+        console.error("Error al copiar: "+err);
+    }
 }
 
