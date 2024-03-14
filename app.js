@@ -1,9 +1,8 @@
-//Captura de elementos de texto
+//Declaración de variables globales y uso del DOM
 const textoUsuario=document.getElementById("texto-usuario");//textarea DOM
 const textoMostrado=document.querySelector("#caja-de-texto");
-centinela=0;
-console.log(textoUsuario,textoMostrado);
-//Matriz de encriptación 
+
+//Matriz de encriptación, Encriptado y Desencriptado 
 const matrizKey=[
     ["e","enter"],
     ["i","imes"],
@@ -17,69 +16,13 @@ function getUserText() {
     return textoIngresado;
 }
 
-function funcionesToActivar() {
-    conversorMinusculas();
-    conversorAcento();
-}
-
-function conversorMinusculas(){
-    let textoIngresado=textoUsuario.value;
-    textoUsuario.value=textoIngresado.toLowerCase();
-}
-
-function conversorAcento(){
-    let textoIngresado=textoUsuario.value;
-    acento=["á","é","í","ó","ú"];
-    sinAcento=["a","e","i","o","u"];
-    for(let i=0; i<acento.length; i++){
-        textoIngresado=textoIngresado.replaceAll(acento[i],sinAcento[i]);
-    }
-    textoUsuario.value=textoIngresado;
-}
-
-function peticionUsuarioAMinusculas(){
-    let resultado = confirm("Pulse en aceptar para cambiar todo a minúsculas automáticamente");
-    if (resultado) {
-        conversorMinusculas();
-        if(centinela==0){
-            textoUsuario.oninput=conversorMinusculas;
-            centinela=1;
+function encriptado(texto) {
+    for (let i=0; i<matrizKey.length; i++){
+        if (texto.includes(matrizKey[i][0])){
+            texto=texto.replaceAll(matrizKey[i][0],matrizKey[i][1]);
         }
-        else{
-            textoUsuario.addEventListener('input', funcionesToActivar);
-        }
-    } 
-    else{
-        alert("No se pueden encriptar mayúsculas, acentos ni caracteres especiales");
-    }
-}
-
-function peticionUsuarioSinAcento(){
-    let resultado = confirm("Pulse en aceptar para bloquear acentos automáticamente");
-    if (resultado) {
-        conversorAcento();
-        if(centinela==0){
-            textoUsuario.oninput=conversorAcento;
-            centinela=1;
-        }
-        else{
-            textoUsuario.addEventListener('input', funcionesToActivar);
-        }
-    } 
-    else{
-        alert("No se pueden encriptar mayúsculas, acentos ni caracteres especiales");
-    }
-}
-
-
-function verificarMayusculasAcentos(event){
-    let ultimaLetra = getUserText().charAt(getUserText().length - 1);
-    if (ultimaLetra==ultimaLetra.toUpperCase() && /[A-Z]/.test(ultimaLetra)){
-        peticionUsuarioAMinusculas();
-    }
-    if(/[áéíóú]/.test(ultimaLetra)){
-        peticionUsuarioSinAcento();
-    }
+    }  
+    console.log(texto);
 }
 
 function botonEncriptar(te){
@@ -94,21 +37,6 @@ function apareceBoton() {
     copiar.style.display = "block";
 }
 
-function encriptado(texto) {
-    for (let i=0; i<matrizKey.length; i++){
-        if (texto.includes(matrizKey[i][0])){
-            texto=texto.replace(new RegExp(matrizKey[i][0], "g"),matrizKey[i][1]);
-        }
-    }  
-    console.log(texto);
-}
-
-function botonDesencriptar(){
-    console.log(getUserText());
-    desencriptado(getUserText());
-    
-}
-
 function desencriptado(texto) {
     let auxiliar=texto;
     for (let i=0; i<matrizKey.length; i++){
@@ -118,3 +46,39 @@ function desencriptado(texto) {
     }  
     console.log(auxiliar);
 }
+
+function botonDesencriptar(){
+    console.log(getUserText());
+    desencriptado(getUserText());
+    
+}
+
+//Control de condiciones para el texto ingresado en el textarea
+//Minúsculas
+function conversorMinusculas(){
+    let textoIngresado=textoUsuario.value;
+    textoUsuario.value=textoIngresado.toLowerCase();
+}
+
+function avisoCambioAMinusculas(){
+    alert("No se permiten mayúsculas, se cambiará el texto a minúsculas automáticamente");
+    conversorMinusculas();
+    textoUsuario.oninput=conversorMinusculas;
+}
+
+
+function verificarMayusculas(){
+    let ultimaLetra = getUserText().charAt(getUserText().length - 1);
+    if (ultimaLetra==ultimaLetra.toUpperCase() && /[A-ZÑ]/.test(ultimaLetra)){
+        avisoCambioAMinusculas();
+    }
+}
+//Bloqueo caracteres especiales
+//textoUsuario.addEventListener("keypress",bloqueoCaracteresEspeciales);
+function bloqueoCaracteresEspeciales(event){
+   const charCode=event.charCode;
+   if (charCode!=9 && charCode!=32 && charCode!=209 && charCode!=241 && (charCode<65 || charCode>90) && (charCode<97 || charCode>122)){
+     event.preventDefault();
+   }
+}
+
