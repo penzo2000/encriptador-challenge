@@ -1,3 +1,10 @@
+/*const textareaLectura = document.getElementById("textarea-lectura");
+console.log(textareaLectura);
+let prueba= prompt("Ingrese mensaje");
+textareaLectura.value=prueba;
+textareaLectura.style.backgroundImage="none";*/
+
+
 //--------Declaración de variables globales y uso del DOM-------
 const textoUsuario=document.getElementById("texto-usuario");//textarea DOM
 const textoMostrado=document.querySelector("#caja-de-texto");
