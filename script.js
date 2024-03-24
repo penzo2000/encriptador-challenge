@@ -1,13 +1,9 @@
-/*const mensajeContenedor = document.getElementById("mensajeContenedorId");
-let prueba= prompt("Ingrese mensaje");
-mensajeContenedor.textContent=prueba;
-mensajeContenedor.style.alignContent="start";
-mensajeContenedor.style.backgroundImage="none";*/
-
 //--------Declaración de variables globales y uso del DOM-------
 const textoUsuario=document.getElementById("textareaid");//textarea DOM
 const copiar=document.getElementById('boton-copiar');
-const mostrarEncriptado=document.getElementById("mensajeContenedorId");
+const mensajeContenedor=document.getElementById("mensajeContenedorId");
+const textareaMensaje=document.getElementById("mensajeTextareaId");
+const mensajeAUsuario=document.getElementById("mensajeId");
 
 //--------Matriz de encriptación, Encriptado y Desencriptado------ 
 const matrizKey=[
@@ -23,38 +19,46 @@ function getUserText() {
     return textoIngresado;
 }
 
+//Encriptado
 function encriptado(texto) {
     for (let i=0; i<matrizKey.length; i++){
         if (texto.includes(matrizKey[i][0])){
             texto=texto.replaceAll(matrizKey[i][0],matrizKey[i][1]);
         }
-    }  
-    cambiarContenido(mostrarEncriptado, texto);
+    } 
+    cambiarContenidoTextarea(textareaMensaje,texto); 
     console.log(texto);
 }
 function botonEncriptar(){
     console.log(getUserText());
     encriptado(getUserText());
-    apareceBotonCopiar();
-    limpiarTextArea();
+    mostrarElemento(copiar);
+    mostrarElemento(textareaMensaje);
+    limpiarTextArea(textoUsuario);
+    quitarFondoMensaje();
+    ocultarElemento(mensajeAUsuario);
     restablecerBotonCopiar();
 }
 
+//Desencriptado
 function desencriptado(texto) {
-    let auxiliar=texto;
-    for (let i=0; i<matrizKey.length; i++){
+    for (let i=matrizKey.length-1; i>=0; i--){
         if (texto.includes(matrizKey[i][1])){
-            auxiliar=auxiliar.replaceAll(matrizKey[i][1],matrizKey[i][0]);
+            texto=texto.replaceAll(matrizKey[i][1],matrizKey[i][0]);
         }
-    }  
-    console.log(auxiliar);
+    }
+    cambiarContenidoTextarea(textareaMensaje,texto); 
 }
 
 function botonDesencriptar(){
     console.log(getUserText());
     desencriptado(getUserText());
-    limpiarTextArea();
-    restablecerBotonCopiar()
+    mostrarElemento(copiar);
+    mostrarElemento(textareaMensaje);
+    limpiarTextArea(textoUsuario);
+    quitarFondoMensaje();
+    ocultarElemento(mensajeAUsuario);
+    restablecerBotonCopiar();
 }
 
 //------------Control de condiciones para el texto ingresado en el textarea--------
@@ -73,10 +77,12 @@ function avisoCambioAMinusculas(){
 
 function verificarMayusculas(){
     let ultimaLetra = getUserText().charAt(getUserText().length - 1);
-    if (ultimaLetra==ultimaLetra.toUpperCase() && /[A-ZÑ]/.test(ultimaLetra)){
+    let textoCompleto=getUserText();
+    if ((ultimaLetra==ultimaLetra.toUpperCase() || textoCompleto!=textoCompleto.toLowerCase() ) && /[A-ZÑ]/.test(ultimaLetra)|| textoCompleto!=textoCompleto.toLowerCase()){
         avisoCambioAMinusculas();
     }
 }
+
 //Bloqueo caracteres especiales
 function bloqueoCaracteresEspeciales(event){
    const charCode=event.charCode;
@@ -87,29 +93,52 @@ function bloqueoCaracteresEspeciales(event){
 
 //---------------Otras funcionalidades------------
 
-function limpiarTextArea() {
-    textoUsuario.value="";
+function limpiarTextArea(textarea) {
+    textarea.value="";
 }
 
-function cambiarContenido(elemento, contenidoNuevo){
-    elemento.innerHTML=contenidoNuevo;
+function cambiarContenidoTextarea(textarea,textoNuevo){
+    textarea.value=textoNuevo;
 }
-//Copiar texto
-function apareceBotonCopiar() {
-    copiar.style.display = "block";
+
+function mostrarElemento(elemento){
+    elemento.hidden=false;
 }
+
+function quitarFondoMensaje(){
+    mensajeContenedor.style.backgroundImage="none";
+}
+
+function ocultarElemento(elemento){
+    elemento.hidden=true;
+}
+
+function restablecerMensajeContenedor(){
+    limpiarTextArea(textareaMensaje);
+    mostrarElemento(mensajeAUsuario);
+    ocultarElemento(textareaMensaje);
+}
+
+//-----------------Copiar texto--------------
 
 function restablecerBotonCopiar() {
     copiar.textContent="Copiar";
+    copiar.style.background="none";
+}
+
+function cambiarBtnCopiar(){
+    copiar.textContent="Copiado!";
+    copiar.style.background="rgb(178, 252, 149)";
 }
  async function copiarTexto(){
-    let textoEncriptado=mostrarEncriptado.textContent;
-    console.log("tu texto copiado es: "+mostrarEncriptado.textContent);
+    let textoEncriptado=textareaMensaje.value;
+    console.log("tu texto copiado es: "+textareaMensaje.value);
     try{
         await navigator.clipboard.writeText(textoEncriptado);
-        copiar.textContent="Copiado!";
+        cambiarBtnCopiar();
     }
     catch(err){
         console.error("Error al copiar: "+err);
     }
+    restablecerMensajeContenedor();
 }

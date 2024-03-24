@@ -26,11 +26,12 @@
                 </div>
             </section>
             <section class="mensajeContenedor" id="mensajeContenedorId">
-                <div class="mensaje">
+                <textarea hidden id="mensajeTextareaId" cols="30" rows="10" class="mensajeTextarea"></textarea>
+                <div id="mensajeId" class="mensaje">
                     <p>Ningun mensaje fue encontrado</p>
                     <p>Ingresa el texto que desees encriptar o desencriptar.</p>
                 </div>
-                <button onclick="copiarTexto()" id="boton-copiar" class="copiar">Copiar</button>
+                <button hidden onclick="copiarTexto()" id="boton-copiar" class="copiar">Copiar</button>
             </section>
         </div>
     </main>

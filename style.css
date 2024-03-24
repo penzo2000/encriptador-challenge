@@ -5,7 +5,6 @@
  }
  body{
     background:#dbe2f8;
-    /*background: #dbe2f8;*/
  }
 
 .logo{
@@ -89,6 +88,13 @@
     margin-left: 16%;
 }
 
+.escribirContenedor button:active{
+    transform: scale(0.94); 
+    transition: transform 0.1s ease-in-out;
+    box-shadow: 0 10px 16px rgba(0, 0, 0, 0.1);
+    border-color: #00ff0d;
+    box-shadow: 0 0 10px 2px #00ffff;
+}
 
 
 .mensajeContenedor{
@@ -98,16 +104,31 @@
     background-size: 290px;
     background-repeat: no-repeat;
     border-radius: 24px;
-    width:34%;
+    width:30%;
     height: 600px;
     align-content:flex-end;
     text-align: center;
 
  }
 
+ .mensajeTextarea{
+    margin-bottom: 85px;
+    width: 90%;
+    height: 360px;
+    padding: 15px;
+    outline: none;
+    border:none;
+    resize: none;
+    font-weight:400;
+    font-size:24px;
+    line-height: 36px;
+    color:rgb(90, 86, 86);
+ }
+
 .mensaje{
     text-align: center;
-    display: inline;
+    margin-bottom: 100px;
+    padding:5px;
  }
 
  .mensaje > p:first-child{
@@ -123,24 +144,18 @@
 }
 
 .copiar{
-    margin-top: 7%;
     width:60%;
     margin-bottom: 56px;
-    display:none;
  }
-
-/*------------Media Querys------*/
-@media(max-width: 768px){
-    .logo{
-        width:90px ;
-        padding-bottom: 10px;
-    }
-    .escribirContenedor, .mensajeContenedor{
-        width: 100%;
-    }
+.copiar:active{
+    transform: scale(0.94); 
+    transition: transform 0.1s ease-in-out;
+    box-shadow: 0 10px 16px rgba(0, 0, 0, 0.1);
+    border-color: #00ff0d;
+    box-shadow: 0 0 10px 2px #00ffff;
 }
 
-footer{
+ footer{
     background-color: #0A3871;
     padding: 60px;
     text-align: center;
@@ -149,21 +164,60 @@ footer{
     font-size: 13px;
 }
 
+/*--------------------------------------------Media Querys---------------------------*/
 
-
-
-
-/*#mensaje{
-    background: #F3F5FC;
-    background: white;
-    background-image: url(/imagenes/munieco.png);
-    background-repeat: no-repeat;
-    border: none;
-    border-radius: 24px;
-    color: #0a3871;
-    margin-left: 98px;
-    margin-top: 20px;
-    padding-left: 20px;
+/*TABLET*/
+@media(max-width: 768px){
+    .logo{
+        width:90px ;
+        padding-bottom: 10px;
+    }
+    .escribirContenedor, .mensajeContenedor{
+        width: 100%;
+    }
+    .mensajeContenedor{
+        margin-top: 20px;
+        margin-right: 30px;
+        background-image: none;
+        height: auto;
+    }
+    .mensajeTextarea{
+        height: 250px;
+        margin-bottom: 0px;
+    }
+    .mensaje{
+        margin-top: 50px;
+    }
+    .copiar{
+        margin-bottom: 0;
+    }
+}
+/*cELULAR*/
+@media(max-width: 375px){
+    .contenedor{
+        margin:15px;
+    }
+    .text-area, .btn-deseencriptar, .mensajeContenedor, .escribirContenedor, .mensajeTextarea{
+        margin: 0px;
+    }
+    .text-area{
+        height: 355px;
+        width: 100%;
+    }
+    .btn-deseencriptar{
+        margin-top: 18px;
+        margin-bottom: 20px;
+    }
+    .escribirContenedor button, .copiar{
+        width: 100%;
+    }
+    .escribirContenedor{
+        width: 100%;
+        height: auto;
+    }
+    .mensajeTextarea{
+        width: 90%;
+    }
 }
 
 
