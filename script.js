@@ -1,15 +1,13 @@
-/*const textareaLectura = document.getElementById("textarea-lectura");
-console.log(textareaLectura);
+/*const mensajeContenedor = document.getElementById("mensajeContenedorId");
 let prueba= prompt("Ingrese mensaje");
-textareaLectura.value=prueba;
-textareaLectura.style.backgroundImage="none";*/
-
+mensajeContenedor.textContent=prueba;
+mensajeContenedor.style.alignContent="start";
+mensajeContenedor.style.backgroundImage="none";*/
 
 //--------Declaración de variables globales y uso del DOM-------
-const textoUsuario=document.getElementById("texto-usuario");//textarea DOM
-const textoMostrado=document.querySelector("#caja-de-texto");
+const textoUsuario=document.getElementById("textareaid");//textarea DOM
 const copiar=document.getElementById('boton-copiar');
-const mostrarEncriptado=document.getElementById("mensaje");
+const mostrarEncriptado=document.getElementById("mensajeContenedorId");
 
 //--------Matriz de encriptación, Encriptado y Desencriptado------ 
 const matrizKey=[

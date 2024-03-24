@@ -14,27 +14,29 @@
         <img src="/imagenes/logo.png" alt="Logo de AluraLatam" class="logo">
     </header>
     <main>
-        <section class="escribir">
-            <textarea class="text-area" cols="30" rows="10" placeholder="Ingrese texto aquí"></textarea>
-            <div>
-                <h6 class="advertencia">Solo letras minúsculas y sin acento</h6>
-            </div>
-            <div class="botones">
-                <button onclick="encriptar()" class="btn-encriptar">Encriptar</button>
-                <button onclick="desencriptar()" class="btn-deseencriptar">Desencriptar</button>
-            </div>
-        </section>
-        <section class="leer">
-            <textarea cols="20" rows="10" id="textarea-lectura" disabled readonly>Ningun mensaje fue encontrado</textarea>
-            <div>
-                <button onclick="copiar()" class="copiar">Copiar</button>
-            </div>
-        </section>
+        <div class="contenedor">
+            <section class="escribirContenedor">
+                <textarea onkeyup="verificarMayusculas()"  onkeypress="bloqueoCaracteresEspeciales(event)" id="textareaid"class="text-area" cols="30" rows="10" placeholder="Ingrese texto aquí"></textarea>
+                <div>
+                    <img src="imagenes/signo-de-advertencia.png"><h6 class="advertencia">Solo letras minúsculas y sin acento</h6>
+                </div>
+                <div class="botones">
+                    <button  onclick="botonEncriptar()" class="btn-encriptar">Encriptar</button>
+                    <button onclick="botonDesencriptar()" class="btn-deseencriptar">Desencriptar</button>
+                </div>
+            </section>
+            <section class="mensajeContenedor" id="mensajeContenedorId">
+                <div class="mensaje">
+                    <p>Ningun mensaje fue encontrado</p>
+                    <p>Ingresa el texto que desees encriptar o desencriptar.</p>
+                </div>
+                <button onclick="copiarTexto()" id="boton-copiar" class="copiar">Copiar</button>
+            </section>
+        </div>
     </main>
     <footer>
         <p>Desarrollado por Victoria Penzo - &copy; Copyright 2024</p>
     </footer>
-    
-    <script src="app.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
