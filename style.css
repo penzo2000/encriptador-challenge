@@ -142,6 +142,11 @@
     width:60%;
     margin-bottom: 56px;
  }
+.copiar:hover{
+    transform: scale(1.04);
+    transition: 0.1s;
+    letter-spacing: 0.2em;
+}
 
 .copiar:active{
     transform: scale(0.94); 
@@ -167,11 +172,6 @@ footer img{
 /*--------------------------------------------Media Querys---------------------------*/
 @media(min-width: 769px){
     .escribirContenedor button:hover{
-    transform: scale(1.04);
-    transition: 0.1s;
-    letter-spacing: 0.2em;
-    }
-    .copiar:hover{
     transform: scale(1.04);
     transition: 0.1s;
     letter-spacing: 0.2em;
