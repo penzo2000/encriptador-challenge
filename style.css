@@ -102,7 +102,7 @@
 
 .mensajeContenedor{
     background-color: white;
-    background-image: url(/imagenes/munieco.png);
+    background-image: url(imagenes/munieco.png);
     background-position:center;
     background-size: 290px;
     background-repeat: no-repeat;
