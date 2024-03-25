@@ -87,19 +87,11 @@
     color:#0A3871;
     margin-left: 16%;
 }
-.escribirContenedor button:hover{
-    transform: scale(1.04);
-    transition: 0.1s;
-    letter-spacing: 0.2em;
-}
 .escribirContenedor button:active{
     transform: scale(0.94); 
     transition: transform 0.1s ease-in-out;
     box-shadow: 0 10px 32px rgba(0, 0, 0, 0.3);
 }
-
-
-
 .mensajeContenedor{
     background-color: white;
     background-image: url(imagenes/munieco.png);
@@ -151,11 +143,6 @@
     margin-bottom: 56px;
  }
 
-.copiar:hover{
-    transform: scale(1.04);
-    transition: 0.1s;
-    letter-spacing: 0.2em;
-}
 .copiar:active{
     transform: scale(0.94); 
     transition: transform 0.1s ease-in-out;
@@ -178,7 +165,18 @@ footer img{
 }
 
 /*--------------------------------------------Media Querys---------------------------*/
-
+@media(min-width: 769px){
+    .escribirContenedor button:hover{
+    transform: scale(1.04);
+    transition: 0.1s;
+    letter-spacing: 0.2em;
+    }
+    .copiar:hover{
+    transform: scale(1.04);
+    transition: 0.1s;
+    letter-spacing: 0.2em;
+    }
+}
 /*TABLET*/
 @media(max-width: 768px){
     .logo{
