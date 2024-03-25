@@ -27,10 +27,8 @@ function encriptado(texto) {
         }
     } 
     cambiarContenidoTextarea(textareaMensaje,texto); 
-    console.log(texto);
 }
 function botonEncriptar(){
-    console.log(getUserText());
     encriptado(getUserText());
     mostrarElemento(copiar);
     mostrarElemento(textareaMensaje);
@@ -51,7 +49,6 @@ function desencriptado(texto) {
 }
 
 function botonDesencriptar(){
-    console.log(getUserText());
     desencriptado(getUserText());
     mostrarElemento(copiar);
     mostrarElemento(textareaMensaje);
@@ -61,29 +58,52 @@ function botonDesencriptar(){
     restablecerBotonCopiar();
 }
 
-//------------Control de condiciones para el texto ingresado en el textarea--------
-//Minúsculas
+//-----------------Control de condiciones para el texto ingresado en el textarea---------------------
+
+//Modificadores de Texto en textarea
 function conversorMinusculas(){
     let textoIngresado=textoUsuario.value;
     textoUsuario.value=textoIngresado.toLowerCase();
 }
 
+function eliminarCaracteresEspeciales(texto){
+    let textoLimpio = texto.replace(/[^a-zA-Z\sñÑ]/g,'');
+    textoUsuario.value=textoLimpio;
+}
+
+//Avisa al usuario que se modificará el texto en su textarea
 function avisoCambioAMinusculas(){
-    alert("No se permiten mayúsculas, se cambiará el texto a minúsculas automáticamente");
+    Swal.fire({
+        text: 'No se permiten mayúsculas, se cambiará el texto a minúsculas automáticamente',
+        icon: 'info',
+        confirmButtonText: 'Aceptar'
+      });
     conversorMinusculas();
     textoUsuario.oninput=conversorMinusculas;
 }
 
+function avisoEliminarCaracteres(){
+    Swal.fire({
+        text: 'No se permiten caracteres especiales, se eliminaran automaticamente',
+        icon: 'info',
+        confirmButtonText: 'Aceptar'
+      });
+}
 
-function verificarMayusculas(){
+//Control deL texto tipeado directamente en el textarea o copiado de algún lugar externo 
+
+function verificarMayusculasCaracteresEspeciales(){
     let ultimaLetra = getUserText().charAt(getUserText().length - 1);
     let textoCompleto=getUserText();
     if ((ultimaLetra==ultimaLetra.toUpperCase() || textoCompleto!=textoCompleto.toLowerCase() ) && /[A-ZÑ]/.test(ultimaLetra)|| textoCompleto!=textoCompleto.toLowerCase()){
         avisoCambioAMinusculas();
     }
+    if(/[^a-zA-Z\sñÑ]/.test(textoCompleto)){
+        avisoEliminarCaracteres();
+        eliminarCaracteresEspeciales(textoCompleto);
+    }
 }
 
-//Bloqueo caracteres especiales
 function bloqueoCaracteresEspeciales(event){
    const charCode=event.charCode;
    if (charCode!=9 && charCode!=32 && charCode!=209 && charCode!=241 && (charCode<65 || charCode>90) && (charCode<97 || charCode>122)){
@@ -91,7 +111,7 @@ function bloqueoCaracteresEspeciales(event){
    }
 }
 
-//---------------Otras funcionalidades------------
+//---------------Otras funcionalidades-----------------
 
 function limpiarTextArea(textarea) {
     textarea.value="";
@@ -119,11 +139,11 @@ function restablecerMensajeContenedor(){
     ocultarElemento(textareaMensaje);
 }
 
-//-----------------Copiar texto--------------
+//-----------------Copiar texto----------------------
 
 function restablecerBotonCopiar() {
     copiar.textContent="Copiar";
-    copiar.style.background="none";
+    copiar.style.background="white";
 }
 
 function cambiarBtnCopiar(){
@@ -132,7 +152,6 @@ function cambiarBtnCopiar(){
 }
  async function copiarTexto(){
     let textoEncriptado=textareaMensaje.value;
-    console.log("tu texto copiado es: "+textareaMensaje.value);
     try{
         await navigator.clipboard.writeText(textoEncriptado);
         cambiarBtnCopiar();

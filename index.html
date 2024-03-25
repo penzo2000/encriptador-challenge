@@ -16,7 +16,7 @@
     <main>
         <div class="contenedor">
             <section class="escribirContenedor">
-                <textarea onkeyup="verificarMayusculas()"  onkeypress="bloqueoCaracteresEspeciales(event)" id="textareaid"class="text-area" cols="30" rows="10" placeholder="Ingrese texto aquí"></textarea>
+                <textarea onkeyup="verificarMayusculasCaracteresEspeciales()"  onkeypress="bloqueoCaracteresEspeciales(event)" id="textareaid"class="text-area" cols="30" rows="10" placeholder="Ingrese texto aquí"></textarea>
                 <div>
                     <img src="imagenes/signo-de-advertencia.png"><h6 class="advertencia">Solo letras minúsculas y sin acento</h6>
                 </div>
@@ -26,7 +26,7 @@
                 </div>
             </section>
             <section class="mensajeContenedor" id="mensajeContenedorId">
-                <textarea hidden id="mensajeTextareaId" cols="30" rows="10" class="mensajeTextarea"></textarea>
+                <textarea readonly hidden id="mensajeTextareaId" cols="30" rows="10" class="mensajeTextarea"></textarea>
                 <div id="mensajeId" class="mensaje">
                     <p>Ningun mensaje fue encontrado</p>
                     <p>Ingresa el texto que desees encriptar o desencriptar.</p>
@@ -37,7 +37,11 @@
     </main>
     <footer>
         <p>Desarrollado por Victoria Penzo - &copy; Copyright 2024</p>
+        <a href="https://github.com/penzo2000">
+            <img src="https://github.com/fluidicon.png" alt="GitHub Logo">
+        </a>
     </footer>
     <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </body>
 </html>

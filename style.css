@@ -87,14 +87,17 @@
     color:#0A3871;
     margin-left: 16%;
 }
-
+.escribirContenedor button:hover{
+    transform: scale(1.04);
+    transition: 0.1s;
+    letter-spacing: 0.2em;
+}
 .escribirContenedor button:active{
     transform: scale(0.94); 
     transition: transform 0.1s ease-in-out;
-    box-shadow: 0 10px 16px rgba(0, 0, 0, 0.1);
-    border-color: #00ff0d;
-    box-shadow: 0 0 10px 2px #00ffff;
+    box-shadow: 0 10px 32px rgba(0, 0, 0, 0.3);
 }
+
 
 
 .mensajeContenedor{
@@ -147,12 +150,16 @@
     width:60%;
     margin-bottom: 56px;
  }
+
+.copiar:hover{
+    transform: scale(1.04);
+    transition: 0.1s;
+    letter-spacing: 0.2em;
+}
 .copiar:active{
     transform: scale(0.94); 
     transition: transform 0.1s ease-in-out;
-    box-shadow: 0 10px 16px rgba(0, 0, 0, 0.1);
-    border-color: #00ff0d;
-    box-shadow: 0 0 10px 2px #00ffff;
+    box-shadow: 0 10px 32px rgba(0, 0, 0, 0.3);
 }
 
  footer{
@@ -162,6 +169,12 @@
     font-family: "Inter", sans-serif;
     color:#FFFFFF;
     font-size: 13px;
+    text-align: center;
+}
+footer img{
+    display:inline;
+    width: 25px;
+    margin-top: 10px;
 }
 
 /*--------------------------------------------Media Querys---------------------------*/
@@ -217,6 +230,15 @@
     }
     .mensajeTextarea{
         width: 90%;
+    }
+}
+
+@media(min-width: 1440px){
+    .mensajeContenedor{
+        height: 944px;
+    }
+    .escribirContenedor{
+        height: 800px;
     }
 }
 
